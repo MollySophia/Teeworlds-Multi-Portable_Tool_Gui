@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/teeworlds">
+        <file alias="tw_ico">Teeworlds.ico</file>
+    </qresource>
+</RCC>
