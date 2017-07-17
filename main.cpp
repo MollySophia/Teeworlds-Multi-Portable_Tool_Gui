@@ -92,7 +92,7 @@ void reflist()
     u5->setText(users[4].name.c_str());
 }
 
-int runclient(string path, int uid)
+int runclient(int uid)
 {
     char cmd[255];
     memset(cmd,0,sizeof(cmd));
@@ -131,7 +131,7 @@ int createuser()
     pos=f.find("0",0);
     f[pos]=k+'0';
     system(f.c_str());
-    runclient(exepath,k);
+    runclient(k);
     return 0;
 }
 int deleteuser(int uid)
@@ -157,12 +157,12 @@ void selectchange(int currentRow)
 void Wchar_tToString(std::string& szDst, wchar_t *wchar)
 {
     wchar_t * wText = wchar;
-    DWORD dwNum = WideCharToMultiByte(CP_OEMCP,NULL,wText,-1,NULL,0,NULL,FALSE);// WideCharToMultiByte的运用
-    char *psText;  // psText为char*的临时数组，作为赋值给std::string的中间变量
+    DWORD dwNum = WideCharToMultiByte(CP_OEMCP,NULL,wText,-1,NULL,0,NULL,FALSE);
+    char *psText;
     psText = new char[dwNum];
-    WideCharToMultiByte (CP_OEMCP,NULL,wText,-1,psText,dwNum,NULL,FALSE);// WideCharToMultiByte的再次运用
-    szDst = psText;// std::string赋值
-    delete []psText;// psText的清除
+    WideCharToMultiByte (CP_OEMCP,NULL,wText,-1,psText,dwNum,NULL,FALSE);
+    szDst = psText;
+    delete []psText;
 }
 
 int main(int argc, char *argv[])
@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
 
 void MainWindow::on_start_clicked()
 {
-    runclient(exepath,uid);
+    runclient(uid);
 }
 
 void Dialogset::on_toolButton_clicked()

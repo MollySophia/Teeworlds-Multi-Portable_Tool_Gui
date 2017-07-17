@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Multi-Portable Tool v0.1a</string>
+   <string>Multi-Portable Tool</string>
   </property>
   <property name="windowIcon">
    <iconset resource="teeworlds_ico.qrc">
